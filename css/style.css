@@ -222,7 +222,17 @@ header {
     cursor: pointer;}
 
 
-/* MODAL FOOTER */
+/* ---------FOOTER----------- */
+
+footer {
+    margin-top: 50px;
+    padding: 60px 40px;
+    background-color: #a5a6a5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;} 
+
 .modal-footer {
     text-align: center;}
 
@@ -253,13 +263,40 @@ header {
 footer form {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    padding: 20px;}
+    gap: 12px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;}
 
 .contenido {
-    width: 600px;
-    height: 600px;}
+    max-width: 500px;
+    width: 100%;}
 
-section {
-    text-align: center;}
+.contacto {
+    flex: 1;
+    display: flex;
+    justify-content: center;}
+
+/* linea divisoria */
+.logo-vertical {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;}
+
+/* línea vertical */
+.logo-vertical::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.3);}
+
+/* imagen */
+.log-vert {
+    height: 180px;
+    width: auto;}
+
 
