@@ -1,43 +1,64 @@
-
+// CONTENEDORES
 const shopContent = document.getElementById("shopContent");
-const  cart = [];
+const buscador = document.getElementById("buscador"); // input del header
+const cart = [];
 
-productos.forEach((product) => {
 
-    // LISTA DE PRODUCTOS
+function renderProductos(lista) {
+  shopContent.innerHTML = "";
+
+  lista.forEach((product) => {
     const content = document.createElement("div");
-    content.className = "card";
+    content.className = "card"; 
+
     content.innerHTML = `
-    <img src="${product.img}">
-    <h3>${product.productName}</h3>
-    <p class="price">$ ${product.price}</p>
-    `;
-    shopContent.append(content)
+      <img src="${product.img}" alt="${product.productName}">
+      <h3>${product.productName}</h3>
+      <p class="price">$ ${product.price}</p>
+      <button class="add-to-cart" data-id="${product.id}">
+        Añadir al Carrito
+      </button>`;
 
-    // CREACIÓN DEL BOTON
-    const buyButton = document.createElement("button");
-    buyButton.innerText = "Añadir al Carrito";
-    content.append(buyButton);
+    shopContent.appendChild(content);
+  });
+}
 
-    // INCORPORAR PRODUCTOS AL CARRITO
-    buyButton.addEventListener("click", ()=> {
-        const repeat = cart.some((repeatProduct) => repeatProduct.id === product.id);
-        if(repeat){
-            cart.map((prod)=> {
-                if(prod.id === product.id) {
-                    prod.quanty++;
-                    displayCartCounter();
-                }
-            });
-        } else {
-            cart.push({
-                id: product.id,
-                productName: product.productName,
-                price: product.price,
-                quanty: product.quanty,
-                img : product.img,
-            });
-            displayCartCounter();
-        }
+
+renderProductos(productos);
+
+
+shopContent.addEventListener("click", (e) => {
+  const btn = e.target.closest(".add-to-cart");
+  if (!btn) return;
+
+  const id = Number(btn.dataset.id);
+  const product = productos.find((p) => p.id === id);
+  if (!product) return;
+
+  const repeat = cart.some((p) => p.id === id);
+
+  if (repeat) {
+    cart.forEach((p) => {
+      if (p.id === id) p.quanty++;
     });
+  } else {
+    cart.push({ ...product }); 
+  }
+
+  if (typeof displayCartCounter === "function") {
+    displayCartCounter();
+  }
 });
+
+
+if (buscador) {
+  buscador.addEventListener("input", () => {
+    const q = buscador.value.trim().toLowerCase();
+
+    const filtrados = productos.filter((p) =>
+      p.productName.toLowerCase().includes(q)
+    );
+
+    renderProductos(filtrados);
+  });
+}

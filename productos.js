@@ -90,35 +90,3 @@ const productos = [
     quanty: 1,
     img: "https://www.el-angel.com/imagenes/a/30707.jpg",},
 ];
-
-//FUNCION DEL BUsCADOR
-
-const shopContent = document.querySelector("#shopContent");
-const buscador = document.querySelector("#buscador");
-
-
-function renderProductos(lista) {
-  shopContent.innerHTML = "";
-
-  lista.forEach((p) => {
-    const card = document.createElement("div");
-    card.className = "producto-card";
-
-    card.innerHTML = `
-      <img src="${p.img}" alt="${p.productName}">
-      <h3>${p.productName}</h3>
-      <p>$${p.price}</p>
-    `;
-
-    shopContent.appendChild(card);
-  });
-}
-
-    renderProductos(productos);
-
-    buscador.addEventListener("input", () => {
-        const q = buscador.value.trim().toLowerCase();
-        const filtrados = productos.filter(p =>
-        p.productName.toLowerCase().includes(q));
-    renderProductos(filtrados);
-    });
