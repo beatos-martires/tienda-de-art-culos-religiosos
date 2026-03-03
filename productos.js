@@ -4,104 +4,121 @@ const productos = [
     productName: "Cruz de San Benito",
     price: 24000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/33336.jpg",},
+    img: "https://www.el-angel.com/imagenes/a/33336.jpg",},
     
     {id: 2,
     productName: "Santo Rosario",
     price: 10500,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/28696.jpg",}, 
+    img: "https://www.el-angel.com/imagenes/a/28696.jpg",}, 
 
-{
-    id: 3,
+    {id: 3,
     productName: "Pulsera Denario",
     price: 52000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/29001.jpg",
-},
-{
-    id: 4,
+    img: "https://www.el-angel.com/imagenes/a/29001.jpg",},
+
+    {id: 4,
     productName: "Balconera Corpus",
     price: 45000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/34281.jpg",
-},
-{
-    id: 5,
+    img: "https://www.el-angel.com/imagenes/a/34281.jpg",},
+
+    {id: 5,
     productName: "Candelabro barroco",
     price: 60000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/29618.jpg",
-},
-{
-    id: 6,
+    img: "https://www.el-angel.com/imagenes/a/29618.jpg",},
+
+    {id: 6,
     productName: "Atril de mesa",
     price: 80000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/g/15816.jpg",
-},
-{
-    id: 7,
+    img: "https://www.el-angel.com/imagenes/g/15816.jpg",},
+
+    {id: 7,
     productName: "Sahumador",
     price: 45000,
     quanty: 1,
-    img :"https://www.el-angel.com/imagenes/a/29593.jpg",
-},
-{
-    id: 8,
+    img:"https://www.el-angel.com/imagenes/a/29593.jpg",},
+
+    {id: 8,
     productName: "Caliz Barroco",
     price: 156000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/9810.jpg",
-},
-{
-    id: 9,
+    img: "https://www.el-angel.com/imagenes/a/9810.jpg",},
+
+    {id: 9,
     productName: "Patena",
     price: 52200,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/11374.jpg",
-},
+    img: "https://www.el-angel.com/imagenes/a/11374.jpg",},
 
-{
-    id: 10,
+    {id: 10,
     productName: "Copon",
     price: 220000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/10204.jpg",
-},
-{
-    id: 11,
+    img: "https://www.el-angel.com/imagenes/a/10204.jpg",},
+
+    {id: 11,
     productName: "estola Roja",
     price: 90000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/34767.jpg",
-},
-{
-    id: 12,
+    img: "https://www.el-angel.com/imagenes/a/34767.jpg",},
+
+    {id: 12,
     productName: "Estola Verde",
     price: 85000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/22727.jpg",
-},
-{
-    id: 13,
+    img: "https://www.el-angel.com/imagenes/a/22727.jpg",},
+
+    {id: 13,
     productName: "Estola Mariana",
     price: 95000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/34736.jpg",
-},
-{
-    id: 14,
+    img: "https://www.el-angel.com/imagenes/a/34736.jpg",},
+
+    {id: 14,
     productName: "Casulla Blanca",
     price: 125000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/30741.jpg",
-},
-{
-    id: 15,
+    img: "https://www.el-angel.com/imagenes/a/30741.jpg",},
+
+    {id: 15,
     productName: "Casullas x 4",
     price: 320000,
     quanty: 1,
-    img : "https://www.el-angel.com/imagenes/a/30707.jpg",
-},
+    img: "https://www.el-angel.com/imagenes/a/30707.jpg",},
 ];
+
+//FUNCION DEL BUsCADOR
+
+const shopContent = document.querySelector("#shopContent");
+const buscador = document.querySelector("#buscador");
+
+
+function renderProductos(lista) {
+  shopContent.innerHTML = "";
+
+  lista.forEach((p) => {
+    const card = document.createElement("div");
+    card.className = "producto-card";
+
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.productName}">
+      <h3>${p.productName}</h3>
+      <p>$${p.price}</p>
+    `;
+
+    shopContent.appendChild(card);
+  });
+}
+
+    renderProductos(productos);
+
+    buscador.addEventListener("input", () => {
+        const q = buscador.value.trim().toLowerCase();
+        const filtrados = productos.filter(p =>
+        p.productName.toLowerCase().includes(q));
+    renderProductos(filtrados);
+    });

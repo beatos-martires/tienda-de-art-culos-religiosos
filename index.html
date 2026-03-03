@@ -13,6 +13,18 @@
     <header>
         <!-- LOGO PRINCIPAL -->
         <img class="logo-tienda" src="./img/tienda-religiosa.png" alt="Logo">
+
+        <!--Boton de consulta-->
+        <a class="btn-consulta" href="#consulta">Haz tu consulta</a>
+
+        <!--BOTON BUSCADOR-->
+        <input 
+            type="search" 
+            id="buscador" 
+            class="buscador" 
+            placeholder="Buscar productos..." 
+            aria-label="Buscar productos">
+
         <!-- LOGO CARRITO -->
         <div class="cart-btn" id="cart-btn">
             <span class="cart-counter" id="cart-counter">0</span>
@@ -35,27 +47,33 @@
     </main>
    
     <footer>
-        <section class="contacto">
+
+        <section class="contacto" id="consulta">
             <div class="general">
                 <div class="contenido">
                     <form id='form' action="" class="form">
-                        <h3 class="tag"><span>SUMATE A NUESTRA TIENDA ONLINE</span></h3>
-                        <label form="name">Nombre Completo</label>
+                        <h3 class="tag"><span>¡TU CONSULTA NOS IMPULSA!</span></h3>
+                        <label for="name">Nombre Completo</label>
                         <input name="name" required type="text" id="name" placeholder="">
-                        <label form="email">Correo Electrónico</label>
-                        <input name="email" type="text" id="email" required placeholder="">
-                        <label form="mensaje">Mensaje</label>
-                        <textarea id="" name="mensaje" cols="30" rows="10"></textarea>
-                        <button type="submit" class="boton primario">Enviar Mensaje</button>
+                        <label for="email">Correo Electrónico</label>
+                        <input name="email" type="email" id="email" required placeholder="">
+                        <label for="mensaje">Consulta</label>
+                        <textarea id="mensaje" name="mensaje" cols="30" rows="10"></textarea>
+                        <button type="submit" class="boton primario">Enviar</button>
                     </form>
-                    <a href="mailto: leandrobarrionuevo49@gmail.com" id="información"></a>
+                    <a href="mailto: nazarlucas94@gmail.com" id="informacion"></a>
+
+                    <!-- link "invisible" para disparar el mail -->
+                    <a href="#" id="info-mail" style="display:none;"></a>
                 </div>
             </div>
         </section>
+        </div>
     </footer>
     <script src="./productos.js"></script>
     <script src="./carrito.js"></script>
     <script src="./carritointerior.js"></script>
+    <script src="./formulario.js"></script>
 
 </body>
 </html>

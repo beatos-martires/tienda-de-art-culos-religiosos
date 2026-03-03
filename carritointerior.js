@@ -24,7 +24,7 @@ const displayCart = () => {
     });
 
     const modalTitle = document.createElement("div");
-    modalTitle.innerText = "Tu compra 😊🛒";
+    modalTitle.innerText = "Tu compra 🛒";
     modalTitle.className = "modal-title";
     modalHeader.append(modalTitle);
 
@@ -81,15 +81,11 @@ const displayCart = () => {
     const total = cart.reduce((acumulador, elemento) => acumulador + elemento.price * elemento.quanty, 0);
     const modalFooter = document.createElement("div");
     modalFooter.className ="modal-footer"
-    modalFooter.innerHTML = `
-    <div class="total-price">Total a pagar: $ ${total}</div>
-
-    
-    `;
+    modalFooter.innerHTML = `<div class="total-price">Total a pagar: $ ${total}</div>`;
 
     // MERCADO PAGO
-    // <botton class="btn-primary" id="checkout-btn">go to checkout</botton>
-    // <div id="button-checkout"></div>
+    //<botton class="btn-primary" id="checkout-btn">go to checkout</botton>
+    //<div id="button-checkout"></div>
     
     modalContainer.append(modalFooter);
 
@@ -178,9 +174,8 @@ const displayCartCounter = () => {
     const cartLength = cart.reduce((acumulador, elemento) => acumulador + elemento.quanty, 0);
     if (cartLength > 0) {
         cartCounter.style.display = "block";
-        cartCounter.innerText = cartLength;
-    } else {
-        cartCounter.style.display = "none";
-    }
+        cartCounter.innerText = cartLength;} 
+        else {
+        cartCounter.style.display = "none";}
 };
 

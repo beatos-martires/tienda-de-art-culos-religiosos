@@ -1,14 +1,18 @@
+const $form = document.querySelector('#form');
+const $buttonMailto = document.querySelector('#info-mail');
 
+$form.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-const $form =document.querySelector('#form');
-const $buttonMailto = document.querySelector('#información');
+  const form = new FormData(event.currentTarget);
 
-$form.addEventListener('submit', handleSubmit)
+  const name = form.get('name') || '';
+  const email = form.get('email') || '';
+  const mensaje = form.get('mensaje') || '';
 
-function handleSubmit(event){
-    event.preventDefault()
-    const form = new FormData(this)
-    console.log (form.get('name'))
-    $buttonMailto.setAttribute('href', `mailto: leandrobarrionuevo49@gmail.com?sumbject=${form.get ('name')}${form.get ('email')}&body=${form.get ('mensaje')}`)
-    $buttonMailto.click()
-}
+  const subject = encodeURIComponent(`Consulta de ${name}`);
+  const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nConsulta:\n${mensaje}`);
+
+  $buttonMailto.setAttribute('href', `mailto:nazarlucas94@gmail.com?subject=${subject}&body=${body}`);
+  $buttonMailto.click();
+});
