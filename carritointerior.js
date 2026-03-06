@@ -88,7 +88,7 @@ const displayCart = () => {
    
     modalContainer.append(modalFooter)};
 
-    // ✅ conectar botón con Mercado Pago
+    // Conectar botón con Mercado Pago
   const checkoutBtn = modalFooter.querySelector(".checkout-btn");
   checkoutBtn.addEventListener("click", finalizarCompra);
 
@@ -121,5 +121,5 @@ function finalizarCompra() {
   }
 
   // Link fijo de Mercado Pago
-  window.location.href = "http://link.mercadopago.com.ar/salvifici";
+  window.location.href = "https://link.mercadopago.com.ar/salvifici";
 }
