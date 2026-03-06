@@ -88,6 +88,10 @@ const displayCart = () => {
    
     modalContainer.append(modalFooter)};
 
+    // ✅ conectar botón con Mercado Pago
+  const checkoutBtn = modalFooter.querySelector(".checkout-btn");
+  checkoutBtn.addEventListener("click", finalizarCompra);
+
 cartBtn.addEventListener("click", displayCart);
 
 
