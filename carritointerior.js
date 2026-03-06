@@ -118,10 +118,9 @@ function finalizarCompra() {
   if (cart.length === 0) {
     Swal.fire({
         title: "Tu carrito está vacio",
-        text: "colocá productos en el carrito",
+        text: "Colocá artículos, por favor",
         icon: "warning",
-        showCancelButton: true,
-        cancelButtonText: "Cancelar"});
+        showCancelButton: true,});
     return;
   }
 
