@@ -361,3 +361,21 @@ footer form {
 
   .card-products img {
     height: 160px;}}
+
+/*------------BOTON MERCADO LIBRE---------------*/
+
+.checkout-btn{
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.checkout-btn:hover{
+    background-color: darkred;
+}

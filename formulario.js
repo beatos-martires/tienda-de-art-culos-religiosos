@@ -13,6 +13,8 @@ $form.addEventListener('submit', function (event) {
   const subject = encodeURIComponent(`Consulta de ${name}`);
   const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nConsulta:\n${mensaje}`);
 
-  $buttonMailto.setAttribute('href', `mailto:nazarlucas94@gmail.com?subject=${subject}&body=${body}`);
+  $buttonMailto.setAttribute(
+  "href",
+  `mailto:nazarlucas94@gmail.com?subject=${subject}&body=${body}`);
   $buttonMailto.click();
 });

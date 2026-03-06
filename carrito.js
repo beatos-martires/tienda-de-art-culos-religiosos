@@ -50,7 +50,7 @@ shopContent.addEventListener("click", (e) => {
   }
 });
 
-
+//Boton Buscar
 if (buscador) {
   buscador.addEventListener("input", () => {
     const q = buscador.value.trim().toLowerCase();
