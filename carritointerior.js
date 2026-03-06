@@ -116,7 +116,12 @@ const displayCartCounter = () => {
 //Botón Finalizar compra
 function finalizarCompra() {
   if (cart.length === 0) {
-    alert("Tu carrito está vacío");
+    Swal.fire({
+        title: "Tu carrito está vacio",
+        text: "colocá productos en el carrito",
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar"});
     return;
   }
 
